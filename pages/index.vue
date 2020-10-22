@@ -45,7 +45,7 @@ export default {}
   align-items: center;
   text-align: center;
 }
-
+gh
 .title {
   font-family:
     'Quicksand',
