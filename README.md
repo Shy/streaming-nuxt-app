@@ -1,5 +1,9 @@
 # streaming-nuxt-app
 
+![Screenshot of app](Screenshot.png)
+
+This was created using create nuxt app. Since the Contentful API is read only for this project the .env file contains functional API keys that you can use to view this project in action.
+
 ## Build Setup
 
 ```bash
