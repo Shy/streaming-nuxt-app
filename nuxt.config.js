@@ -1,3 +1,6 @@
+import dotenv from "dotenv"; 
+dotenv.config();
+
 export default {
   // Global page headers (https://go.nuxtjs.dev/config-head)
   head: {
@@ -33,6 +36,7 @@ export default {
   modules: [
     // https://go.nuxtjs.dev/axios
     '@nuxtjs/axios',
+    'nuxt-graphql-request'
   ],
 
   // Axios module configuration (https://go.nuxtjs.dev/config-axios)
@@ -40,5 +44,37 @@ export default {
 
   // Build Configuration (https://go.nuxtjs.dev/config-build)
   build: {
-  }
+  },
+  build: {
+    transpile: ['contentful-module']
+  },
+  graphql: {
+    /**
+     * Your GraphQL endpoint (required)
+     */
+    endpoint: 'https://graphql.contentful.com/content/v1/spaces/'+process.env.  CONTENTFUL_SPACE,
+ 
+    /**
+     * Options
+     * See: https://github.com/prisma-labs/graphql-request#passing-more-options-to-fetch
+     */
+    options: {
+      headers: {
+        authorization: 'Bearer ' + process.env.CONTENTFUL_ACCESSTOKEN,
+        'Content-Type': 'application/json',
+      },
+
+    },
+    /**
+     * Optional
+     * default: true (this includes cross-fetch/polyfill before creating the graphql client)
+     */
+    useFetchPolyfill: true,
+ 
+    /**
+     * Optional
+     * default: false (this includes graphql-tag for node_modules folder)
+     */
+    includeNodeModules: true,
+  },
 }

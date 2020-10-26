@@ -1,34 +1,94 @@
 <template>
-  <div class="container">
-    <div>
-      <Logo />
-      <h1 class="title">
-        streaming-nuxt-app
-      </h1>
-      <div class="links">
-        <a
-          href="https://nuxtjs.org/"
-          target="_blank"
-          rel="noopener noreferrer"
-          class="button--green"
-        >
-          Documentation
-        </a>
-        <a
-          href="https://github.com/nuxt/nuxt.js"
-          target="_blank"
-          rel="noopener noreferrer"
-          class="button--grey"
-        >
-          GitHub
-        </a>
+  <div class="container my-12 mx-auto px-4 md:px-12">
+    <div class="flex flex-wrap -mx-1 lg:-mx-4">
+      <div
+        v-for="run in data.runsCollection.items"
+        class="my-1 px-1 w-full md:w-1/2 lg:my-4 lg:px-4 lg:w-1/3"
+      >
+        <article class="overflow-hidden rounded-lg shadow-lg">
+          <a href="#">
+            <img
+              alt="Placeholder"
+              class="block h-auto w-full"
+              :src="run.heartRate.url"
+              :alt="run.heartRate.title"
+            />
+          </a>
+
+          <header
+            class="flex items-center justify-between leading-tight p-2 md:p-4"
+          >
+            <h1 class="text-lg">
+              <a class="no-underline hover:underline text-black" href="#">
+                {{ run.routeName }}
+              </a>
+            </h1>
+            <p class="text-grey-darker text-sm">
+              {{ new Date(run.date).toISOString().split("T")[0] }}
+            </p>
+          </header>
+
+          <footer
+            class="flex items-center justify-between leading-none p-2 md:p-4"
+          >
+            <a
+              class="flex items-center no-underline hover:underline text-black"
+              href="#"
+            >
+              <img
+                class="block rounded-full"
+                :src="run.runner.photo.url"
+                :alt="run.runner.photo.title"
+              />
+              <p class="ml-2 text-sm">{{ run.runner.name }}</p>
+            </a>
+            <a
+              class="no-underline text-grey-darker hovsr:text-red-dark"
+              href="#"
+            >
+              <span class="hidden">Like</span>
+              <i class="fa fa-heart"></i>
+            </a>
+          </footer>
+        </article>
+        <!-- END Article -->
       </div>
+      <!-- END Column -->
     </div>
   </div>
 </template>
 
 <script>
-export default {}
+import { gql } from "graphql-request";
+export default {
+  async asyncData({ $graphql, params }) {
+    const query = gql`
+      query {
+        runsCollection {
+          items {
+            routeName
+            date
+            heartRate {
+              title
+              url
+            }
+            distanceInMiles
+            runner {
+              name
+              photo {
+                title
+                url(transform: { width: 32, height: 32 })
+              }
+            }
+          }
+        }
+      }
+    `;
+    const data = await $graphql.request(query);
+    console.log(data.runsCollection);
+    return { data };
+  },
+};
 </script>
 
 <style>
@@ -45,18 +105,9 @@ export default {}
   align-items: center;
   text-align: center;
 }
-gh
-.title {
-  font-family:
-    'Quicksand',
-    'Source Sans Pro',
-    -apple-system,
-    BlinkMacSystemFont,
-    'Segoe UI',
-    Roboto,
-    'Helvetica Neue',
-    Arial,
-    sans-serif;
+gh .title {
+  font-family: "Quicksand", "Source Sans Pro", -apple-system, BlinkMacSystemFont,
+    "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
   display: block;
   font-weight: 300;
   font-size: 100px;
