@@ -3905,10 +3905,10 @@ graceful-fs@^4.1.11, graceful-fs@^4.1.15, graceful-fs@^4.1.2, graceful-fs@^4.1.6
   resolved "https://registry.yarnpkg.com/graceful-fs/-/graceful-fs-4.2.4.tgz#2256bde14d3632958c465ebc96dc467ca07a29fb"
   integrity sha512-WjKPNJF79dtJAVniUlGGWHYGz2jWxT6VhN/4m1NdkbZ2nOsEF+cI1Edgql5zCRhs/VsQYRvrXctxktVXZUkixw==
 
-graphql-request@^3.1.0:
-  version "3.2.0"
-  resolved "https://registry.yarnpkg.com/graphql-request/-/graphql-request-3.2.0.tgz#d356bbea6dc496ab7969aa0892a0ba9ac938a347"
-  integrity sha512-s4zIfQsDkGUv5ECCkGq55Png7hJjFBV7PMIadB403VDaXv0T1RThPSRgZM1hiKgB420rOItkR5BDQ3vPvaAWqw==
+graphql-request@^3.3.0:
+  version "3.3.0"
+  resolved "https://registry.yarnpkg.com/graphql-request/-/graphql-request-3.3.0.tgz#1b9003f34b73cd40d691803d2d422fde5c713af3"
+  integrity sha512-NHj65WSIUh8j7TBYgzWU0fqvLfxrqFDrLG8nZUh+IREZw50ljR6JXlXRkr52/fL/46wpItiQNLDrG+UZI+KmzA==
   dependencies:
     cross-fetch "^3.0.6"
     extract-files "^9.0.0"
@@ -5347,13 +5347,13 @@ num2fraction@^1.2.2:
   resolved "https://registry.yarnpkg.com/num2fraction/-/num2fraction-1.2.2.tgz#6f682b6a027a4e9ddfa4564cd2589d1d4e669ede"
   integrity sha1-b2gragJ6Tp3fpFZM0lidHU5mnt4=
 
-nuxt-graphql-request@^3.1.2:
-  version "3.1.2"
-  resolved "https://registry.yarnpkg.com/nuxt-graphql-request/-/nuxt-graphql-request-3.1.2.tgz#63fa06e9fcf7dbf3e40619b8c3460b4997dbeb36"
-  integrity sha512-ku9x4kxtuwTe25yAYqWQxXimrlVj4X8AylUZksMZ9PxQygjzOxlLKKF0h90CSmQUvb46dLV/GI2qXMLhpnhFEw==
+nuxt-graphql-request@^3.1.3:
+  version "3.1.3"
+  resolved "https://registry.yarnpkg.com/nuxt-graphql-request/-/nuxt-graphql-request-3.1.3.tgz#9aac5729f7e9aac90d8b37d88dc25e79172765e5"
+  integrity sha512-Mf5tW5bmAiyytlxtsUVEVSmWRRMyUGyQdJAGEtwh8mvBdRvpM3WcA8TXo7DI3gxigu3HlSEweoidchgTyhIk5w==
   dependencies:
     cross-fetch "^3.0.6"
-    graphql-request "^3.1.0"
+    graphql-request "^3.3.0"
 
 nuxt@^2.14.6:
   version "2.14.7"
