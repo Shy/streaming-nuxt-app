@@ -9,7 +9,7 @@
     "generate": "nuxt generate"
   },
   "dependencies": {
-    "@nuxtjs/axios": "^5.12.2",
+    "@nuxtjs/axios": "^5.12.3",
     "core-js": "^3.6.5",
     "dotenv": "^8.2.0",
     "graphql": "^15.3.0",
